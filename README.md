@@ -3,8 +3,7 @@ A simple docker based installation of the SIMON API
 
 ### To run on a fresh vm try this:
 
-sudo apt update && sudo apt-get update && sudo apt upgrade -y && sudo apt-get upgrade -y && sudo apt autoremove -y && sudo apt-g
-et autoremove -y && sudo apt-get install nano git docker.io
+sudo apt update && sudo apt-get update && sudo apt upgrade -y && sudo apt-get upgrade -y && sudo apt autoremove -y && sudo apt-get autoremove -y && sudo apt-get install nano git docker.io -y
 
 sudo groupadd docker
 
