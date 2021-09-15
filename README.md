@@ -11,9 +11,7 @@ sudo usermod -a -G docker ${USER}
 
 #### Exit
 
-git clone https://www.github.com/doclock17/SimonDockerAPI
-
-cd SimonDockerAPI/
+git clone https://www.github.com/doclock17/SimonDockerAPI && cd SimonDockerAPI/
 
 docker image build --tag doclock17/simon_docker_api:2.0 .
 
