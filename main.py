@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import json
 from flask import Flask
 from flask_cors import CORS
 from flask import request
@@ -23,8 +24,13 @@ def landing():
 @app.route('/', methods=['PUT'])
 def string_flip():
     print("request received")
-    put_input = request.args.get('input')
-    print(put_input)
+    request_body = json.loads(request.get_data().decode('utf-8'))
+    print('request_body:', request_body)
+    print("request_body['input']",request_body['input'])
+    put_input = request_body ['input']
+    print('put_input', put_input)
+    
+    ## put_input = request.args.get('input') ## The Old way. . . uses the built in query string rather than Body
 
     try:
         # Get response
