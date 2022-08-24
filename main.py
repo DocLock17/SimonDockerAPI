@@ -23,6 +23,13 @@ def landing():
 # Final PUT endpoint
 @app.route('/', methods=['PUT'])
 def string_flip():
+    """This is the new way it actually processes within the 'body' \
+    of the REST object. The previous version used the 'query' field of \
+    the REST object only. The following call to request was the previous \
+    mode of access to REST results in my APIs.
+    
+    put_input = request.args.get('input') """
+
     print("request received")
     request_body = json.loads(request.get_data().decode('utf-8'))
     print('request_body:', request_body)
@@ -30,7 +37,7 @@ def string_flip():
     put_input = request_body ['input']
     print('put_input', put_input)
     
-    ## put_input = request.args.get('input') ## The Old way. . . uses the built in query string rather than Body
+    
 
     try:
         # Get response
@@ -39,9 +46,8 @@ def string_flip():
         print(body_output)
     except Exception as e:
         print(e)
-    # except:
-    #     body_output = 'Sorry API seems to have experianced an error'
-    #     print(body_output)
+        body_output = 'Sorry API seems to have experianced an error'
+        print(body_output)
     return jsonify(body=body_output), 200
 
 # Run Code
